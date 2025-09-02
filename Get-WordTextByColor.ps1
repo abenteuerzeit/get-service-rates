@@ -26,6 +26,11 @@
     .\Get-WordTextByColor.ps1 -FilePath "report.docx" -Debug
     Processes the document and shows detailed debug messages for troubleshooting.
 
+.EXAMPLE
+    $docx = .\Get-WordTextByColor.ps1 -FilePath "colortext.docx"
+    $redFragments = ($docx | Where-Object { $_.Color -eq "Red" }).Fragments
+    $redFragments | ForEach-Object { $_.Text }
+
 .OUTPUTS
     An array of PSCustomObjects. Each object represents a color and contains the fragments, word count, and fragment count for that color.
 #>
