@@ -46,13 +46,13 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="serviceType" id="translation" value="translation" checked>
                                 <label class="form-check-label" for="translation">
-                                    Tłumaczenie (80 PLN / 250 wyrazów)
+                                    Tłumaczenie (250 wyrazów)
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="serviceType" id="proofreading" value="proofreading">
                                 <label class="form-check-label" for="proofreading">
-                                    Korekta językowa (40 PLN / jednostkę)
+                                    Korekta językowa
                                 </label>
                             </div>
                         </div>
@@ -139,7 +139,8 @@
             }
 
             const serviceType = document.querySelector('input[name="serviceType"]:checked').value;
-            const baseRate = serviceType === 'translation' ? 80 : 40;
+            const ratePLN = 85;
+            const baseRate = serviceType === 'translation' ? ratePLN : ratePLN / 2;
             const sets = Math.ceil(wordCount / 250);
             let totalCost = sets * baseRate;
 
